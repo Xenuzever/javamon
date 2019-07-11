@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header">
+    <nav class="uk-navbar-container uk-background-secondary" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="/">Javamon</a>
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a th:href="'#' + #{header_about}">
+                        <span th:text="#{header_about}"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#" th:text="#{login_title}"><span uk-icon="icon: triangle-down"></span></a>
+                    <div uk-dropdown="mode: click;">
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <form th:action="@{/sign_in}" method="post">
+                                <div class="uk-margin">
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                        <input class="uk-input" type="text" name="username" th:placeholder="#{login_user_ph}">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
+                                        <input class="uk-input" type="password" name="password" th:placeholder="#{login_pass_ph}">
+                                    </div>
+                                </div>
+                                <input class="uk-button uk-button-default" type="submit" th:value="#{login_button}">
+                            </form>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" th:text="#{header_language}"></a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a href="/ja" th:text="#{header_japanese}"></a></li>
+                            <li><a href="/en" th:text="#{header_english}"></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+</html>

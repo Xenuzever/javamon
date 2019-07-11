@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::base_header('TOP', ~{::link})"></head>
+<body>
+<div th:replace="header::header"></div>
+<div class="uk-light uk-background-secondary uk-container-expand">
+    <div class="uk-container-small uk-align-center uk-padding-large">
+        <div class="uk-child-width-expand@s" uk-grid>
+            <div class="uk-padding">
+                <h3 class="uk-card-title">Oracle Certified Java Programmer - Learning</h3>
+                <p th:text="#{top_description}"></p>
+            </div>
+            <div class="uk-padding">
+                <form th:action="@{/sign_in}" method="post">
+                    <fieldset class="uk-fieldset uk-align-center">
+                        <div class="uk-margin">
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                <input class="uk-input" type="text" name="username" th:placeholder="#{sign_user_ph}">
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <div class="uk-inline">
+                                <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
+                                <input class="uk-input" type="password" name="password" th:placeholder="#{sign_pass_ph}">
+                            </div>
+                        </div>
+                        <div class="uk-inline">
+                            <button class="uk-button uk-button-default" href="#modal" th:text="#{sign_button}" uk-toggle ></button>
+                        </div>
+                        <div id="modal" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body">
+                                <button class="uk-modal-close-default" type="button" uk-close></button>
+                                <h2 class="uk-modal-title" th:text="'登録内容の確認'"></h2>
+                                <div class="uk-text-lead uk-text-small">以下の内容で登録します。よろしければ、送信ボタンを押下してください。</div>
+                                <div class="uk-grid-small uk-flex-middle uk-margin" uk-grid>
+                                    <div class="uk-width-auto">
+                                        <span class="uk-margin-small-right" uk-icon="user"></span>
+                                    </div>
+                                    <div class="uk-width-expand">
+                                        <h3 class="uk-card-title uk-margin-remove-bottom uk-text-lead">Title</h3>
+                                    </div>
+                                </div>
+                                <p class="uk-text-right">
+                                    <button class="uk-button uk-button-default uk-modal-close" type="button" th:text="'キャンセル'"></button>
+                                    <button class="uk-button uk-button-primary" type="button" th:text="'送信'"></button>
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="uk-section-default uk-padding-small">
+    <div class="uk-container-small uk-align-center">
+        <h2 th:text="#{avl_con_title}"></h2>
+        <div class="uk-margin uk-card uk-card-default uk-card-body">
+            <b th:text="#{avl_con_bronze_title}"></b><br/>
+            <p th:text="#{avl_con_bronze_description}"></p>
+        </div>
+        <div class="uk-margin uk-card uk-card-default uk-card-body">
+            <b th:text="#{avl_con_silver_title}"></b><br/>
+            <p th:text="#{avl_con_silver_description}"></p>
+        </div>
+        <div class="uk-margin uk-card uk-card-default uk-card-body">
+            <b th:text="#{avl_con_gold_title}"></b><br/>
+            <p th:text="#{avl_con_gold_description}"></p>
+        </div>
+        <div class="uk-margin uk-card uk-card-default uk-card-body">
+            <b th:text="#{avl_con_platinum_title}"></b><br/>
+            <p th:text="#{avl_con_platinum_description}"></p>
+        </div>
+    </div>
+</div>
+<div th:replace="footer::footer"></div>
+</body>
+</html>

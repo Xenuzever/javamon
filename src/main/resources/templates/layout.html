@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!--引数の title, links は fragment expressions */-->
+<head th:fragment="base_header(title, links)">
+    <!--/* 各ビュータイトル */-->
+    <title th:text="${title == null} ? 'Javamon' : ${title}+' | Javamon'">Javamon</title>
+    <!--/* 必ず読み込むファイル */-->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+</head>
+</html>
